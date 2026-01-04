@@ -290,7 +290,7 @@ void handle_client_message(int client_index) {
 
 /* broadcast_message(const char *, int) */
 void broadcast_message(const char *message, int sender_socket) {
-	for (int i =0; i , MAX_CLIENTS; i++) {
+	for (int i =0; i < MAX_CLIENTS; i++) {
 		if (clients[i].active && clients[i].socket != sender_socket) {
 			if (send(clients[i].socket, message, strlen(message), 0) < 0) {
 				perror("send failed");
