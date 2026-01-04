@@ -40,8 +40,8 @@ int main() {
 	printf("Maximum clients :  %d\n", MAX_CLIENTS);
 	printf("Server starting on port : %d...\n", PORT);
 
-	/* initialize server */
-	initialize_server();
+	/* initialize server 
+	initialize_server(); */
 
 	/* Main server loop */
 	while (1) {
@@ -63,9 +63,34 @@ int main() {
 				}
 			}
 		}
+		
+		/* Wait for activity on any sockey (timeout NULL = indefinite wait) */
+		
+		int activity = select(max_sd + 1, &read_fds, NULL, NULL, NULL);
 
+		if (activity < 0 && errno != EINTR) {
+			perror("select error");
+			break;
+		}
 
+		/* check if there's a new connection */
 
+		if (FD_ISSET(server_socket, &read_fds)) {
+			handle_new_connection();
+		}
+
+		/* check each client income messages */
+		
+		if (int i=0; i < MAX_CLIENTS; i++) {
+			if (clients[i].active && FD_ISSET(clients[i].socket, &read_fds)) {
+				handle_client_massages(i);
+			}
+		}
+	}
+
+	cleanup();
 	exit(EXIT_SUCCESS);
 }
+
+
 
