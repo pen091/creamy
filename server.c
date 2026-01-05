@@ -40,7 +40,7 @@ void remove_client(int client_index);
 void cleanup();
 
 int main() {
-    printf("=== Multi-Connection Chat Server ===\n");
+    printf("=== Multi-Connection PEN Chat Server ===\n");
     printf("Maximum clients: %d\n", MAX_CLIENTS);
     printf("Server starting on port %d...\n", PORT);
     
