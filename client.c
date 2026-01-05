@@ -14,8 +14,7 @@
 #include <errno.h>
 
 #define BUFFER_SIZE 2048
-#define SERVER_IP "https://motorola-mailed-vocational-point.trycloudfl
-are.com                                |             "
+#define SERVER_IP "https://motorola-mailed-vocational-point.trycloudflare.com"
 #define SERVER_PORT 8080
 
 int client_socket;
