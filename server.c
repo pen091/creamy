@@ -195,7 +195,7 @@ void handle_new_connection() {
     // Send welcome message
     char welcome_msg[BUFFER_SIZE];
     snprintf(welcome_msg, sizeof(welcome_msg),
-             "\n=== Welcome to Chat Server ===\n"
+             "\n=== Welcome PEN to Chat Server ===\n"
              "Your nickname: %s\n"
              "Online users: %d/%d\n"
              "Type '/help' for commands\n"
