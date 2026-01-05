@@ -85,7 +85,7 @@ void* send_messages(void* arg) {
 }
 
 int main() {
-    printf("=== Chat Client ===\n");
+    printf("=== PEN --> (Welcome Client) ===\n");
     printf("Connecting to server at %s:%d...\n", SERVER_IP, SERVER_PORT);
     
     // Create socket
